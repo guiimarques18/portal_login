@@ -10,13 +10,19 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'cadastro.cadastro_concursos';
+    protected $primaryKey = 'codg_cpf';
+    protected $keyType = 'string';
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nome_candidato', 'codg_cpf', 'password',
+        // 'name', 'codg_cpf', 'password',
     ];
 
     /**
@@ -36,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // public function getAuthPassword()
+    // {
+    //     return $this->desc_senha;
+    // }
 }

@@ -36,41 +36,19 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        // exit("MC");
         $this->middleware('guest')->except('logout');
     }
 
-    // public function login (Request $request) {
-    //     $credenciais = $request->only('email', 'password');
-    //     var_dump($credenciais);
-
-    //     $user = 'nome';
-
-    //     $this->validateCredentials($user, $credenciais);
-
-    //     if (Auth::attempt($credenciais)) {
-    //         return redirect('/home');
-    //     }
-    // }
-
-    // protected function guard()
-    // {
-    //     // var_dump(Auth::guard('customcs'));
-    //     // exit("Guard");
-    //     return Auth::guard('customcs');
-    // }
-
     /**
-     * Validate a user against the given credentials.
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @param  array  $credentials
-     * @return bool
+     * return user to login as a username
      */
-    public function validateCredentials(UserContract $user, array $credentials)
-    {
-        exit("VC");
-        // $plain = $credentials['password'];
-        return $this->hasher->check($plain, $user->getAuthPassword());
-    }
+     public function username()
+     {
+         return 'codg_cpf';
+     }
+
+    //  public function guard() {
+    //      return Auth::guard('custom');
+    //  }
+
 }

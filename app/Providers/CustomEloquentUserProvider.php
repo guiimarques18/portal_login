@@ -14,13 +14,16 @@ class CustomEloquentUserProvider extends EloquentUserProvider
 {
     public function validateCredentials(UserContract $user, array $credentials)
     {
-        $plain = $credentials['password'];
-        exit("VC11");
-        if ($user->legacy) {
-            return hash_equals(md5($plain), $user->getAuthPassword());
-        }
+        echo $plain = $credentials['password'];
+        // var_dump($user);
+        // exit;
+        return true;
+        // exit("VC11");
+        // if ($user->legacy) {
+        //     return hash_equals(md5($plain), $user->getAuthPassword());
+        // }
 
-        return parent::validateCredentials($user, $credentials);
+        // return parent::validateCredentials($user, $credentials);
     }
 
 }
