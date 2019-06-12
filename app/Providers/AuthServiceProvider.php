@@ -27,9 +27,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
-        Auth::extend('customcs', function ($app, array $config) {
+        Auth::provider('customcs', function ($app, array $config) {
             // exit("oi");
-            return new CustomcsAuthServiceProvider($app->make('App\User'));
+            // return new CustomEloquentUserProvider($app->make('App\User'));
+            return $app->make(CustomEloquentUserProvider::class, [$app['hash'], $config['model']]);
         });
     }
 }

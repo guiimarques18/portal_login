@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'csauth',
         ],
 
         'api' => [
@@ -77,7 +77,7 @@ return [
         ],
 
         'csauth' => [
-            'driver' => 'eloquent',
+            'driver' => 'customcs',
             'model' => App\User::class,
         ]
 
